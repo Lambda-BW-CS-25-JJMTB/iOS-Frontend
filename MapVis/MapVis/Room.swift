@@ -17,5 +17,15 @@ struct Room: Codable {
 	let southRoomID: String?
 	let eastRoomID: String?
 	let westRoomID: String?
+
+	enum CodingKeys: String, CodingKey {
+		case name
+		case position
+		case id
+		case northRoomID = "north"
+		case southRoomID = "south"
+		case eastRoomID = "east"
+		case westRoomID = "west"
+	}
 }
 

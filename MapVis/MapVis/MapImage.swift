@@ -56,9 +56,11 @@ class MapImage {
 		self.scale = scale
 	}
 
-	let drawRoom: (UIGraphicsImageRendererContext, Room, CGVector, CGFloat, UIColor) -> Void = { context, room, offset, scale, color in
+	private func drawRoom(_ room: Room, onContext context: UIGraphicsImageRendererContext, offset: CGVector, color: UIColor) {
 		color.set()
+		// offset room position so it fits with 0,0 as origin
 		let unscaledPosition = CGPoint(x: room.position.x, y: room.position.y) + offset
+		// scale up drawing so it's not drawing a single pixel (point if you're being technical about retina devices)
 		let scaledPosition = unscaledPosition * scale
 		// draw room
 		context.cgContext.fillEllipse(in: CGRect(origin: scaledPosition, size: CGSize(width: scale, height: scale)))
@@ -100,11 +102,9 @@ class MapImage {
 			context.cgContext.scaleBy(x: 1, y: -1)
 
 			for (_, room) in rooms.rooms {
-				// offset room position so it fits with 0,0 as origin
-//				let unscaledPosition = CGPoint(x: room.position.x, y: room.position.y) + offset
 				let color = room.position == .zero ? UIColor.darkGray : UIColor.black
 				color.setFill()
-				drawRoom(context, room, offset, scale, color)
+				drawRoom(room, onContext: context, offset: offset, color: color)
 			}
 		}
 		return image

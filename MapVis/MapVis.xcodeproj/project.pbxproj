@@ -20,6 +20,7 @@
 		33041AB723E68F6B00B2B95C /* rooms100.json in Resources */ = {isa = PBXBuildFile; fileRef = 33041AB423E68F6B00B2B95C /* rooms100.json */; };
 		33041AB823E68F6B00B2B95C /* rooms10.json in Resources */ = {isa = PBXBuildFile; fileRef = 33041AB523E68F6B00B2B95C /* rooms10.json */; };
 		33041AB923E68F6B00B2B95C /* rooms500.json in Resources */ = {isa = PBXBuildFile; fileRef = 33041AB623E68F6B00B2B95C /* rooms500.json */; };
+		3372349323E6B3B000B7C33F /* VectorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372349223E6B3B000B7C33F /* VectorExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		33041AB423E68F6B00B2B95C /* rooms100.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rooms100.json; sourceTree = "<group>"; };
 		33041AB523E68F6B00B2B95C /* rooms10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rooms10.json; sourceTree = "<group>"; };
 		33041AB623E68F6B00B2B95C /* rooms500.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rooms500.json; sourceTree = "<group>"; };
+		3372349223E6B3B000B7C33F /* VectorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				33041AAE23E68B8100B2B95C /* Room.swift */,
 				33041AB023E68C1400B2B95C /* RoomCollection.swift */,
 				33041AB223E68CF100B2B95C /* CGPoint+Hashable.swift */,
+				3372349223E6B3B000B7C33F /* VectorExtensions.swift */,
 				33041A9C23E68A9100B2B95C /* Main.storyboard */,
 				33041A9F23E68A9400B2B95C /* Assets.xcassets */,
 				33041AA123E68A9400B2B95C /* LaunchScreen.storyboard */,
@@ -166,6 +169,7 @@
 				33041A9B23E68A9100B2B95C /* ViewController.swift in Sources */,
 				33041A9723E68A9100B2B95C /* AppDelegate.swift in Sources */,
 				33041AAB23E68B4600B2B95C /* MapImage.swift in Sources */,
+				3372349323E6B3B000B7C33F /* VectorExtensions.swift in Sources */,
 				33041A9923E68A9100B2B95C /* SceneDelegate.swift in Sources */,
 				33041AAF23E68B8100B2B95C /* Room.swift in Sources */,
 				33041AB323E68CF100B2B95C /* CGPoint+Hashable.swift in Sources */,

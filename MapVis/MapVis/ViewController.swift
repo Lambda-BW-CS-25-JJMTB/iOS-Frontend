@@ -9,29 +9,26 @@
 import UIKit
 
 class ViewController: UIViewController {
+	@IBOutlet weak var imageView: UIImageView!
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
 
-		guard let url = Bundle.main.url(forResource: "rooms500", withExtension: "json") else { return }
+		guard let url = Bundle.main.url(forResource: "rooms100", withExtension: "json") else { return }
 
-		let data: Data
+		let imageGen: MapImage
 		do {
-			data = try Data(contentsOf: url)
+			let data = try Data(contentsOf: url)
+			imageGen = try MapImage(jsonData: data, scale: 50)
 		} catch {
 			NSLog("Failed opening: \(error)")
 			return
 		}
 
-		let rooms: RoomCollection
-		do {
-			rooms = try JSONDecoder().decode(RoomCollection.self, from: data)
-		} catch {
-			NSLog("failed decoding: \(error)")
-			return
-		}
-		print(rooms)
+//		let image = imageGen.generateImage()
+		imageView.image = imageGen.generateImage()
+
 	}
 
 

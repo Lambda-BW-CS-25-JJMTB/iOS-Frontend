@@ -16,15 +16,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OMU-oe-jxN">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="414"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OMU-oe-jxN" secondAttribute="height" id="dVZ-OD-3En"/>
+                                </constraints>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="2Lf-hs-ERe">
+                                <rect key="frame" x="20" y="466" width="374" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="km8-Nw-4r2">
+                                        <rect key="frame" x="0.0" y="0.0" width="169" height="30"/>
+                                        <state key="normal" title="Render"/>
+                                        <connections>
+                                            <action selector="renderButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tj5-qG-ZDK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LkR-4g-D6d">
+                                        <rect key="frame" x="205" y="0.0" width="169" height="30"/>
+                                        <state key="normal" title="Clear"/>
+                                        <connections>
+                                            <action selector="clearButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tFL-oV-Lqw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="OMU-oe-jxN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EJy-Q4-2kv"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OMU-oe-jxN" secondAttribute="bottom" id="YWE-Rl-NXZ"/>
+                            <constraint firstItem="2Lf-hs-ERe" firstAttribute="top" secondItem="OMU-oe-jxN" secondAttribute="bottom" constant="8" id="PDJ-8T-KMd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OMU-oe-jxN" secondAttribute="trailing" id="a2u-tW-NGR"/>
                             <constraint firstItem="OMU-oe-jxN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mNV-Y5-CGz"/>
+                            <constraint firstItem="2Lf-hs-ERe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="qhL-Gr-VHH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2Lf-hs-ERe" secondAttribute="trailing" constant="20" id="rJL-1r-F9b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -34,7 +58,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="84"/>
+            <point key="canvasLocation" x="137.68115942028987" y="83.705357142857139"/>
         </scene>
     </scenes>
 </document>

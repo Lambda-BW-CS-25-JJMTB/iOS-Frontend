@@ -53,12 +53,13 @@ class MapImage {
 
 //			context.cgContext.clear(renderer.format.bounds)
 
-			UIColor.red.setFill()
-			context.cgContext.fillEllipse(in: CGRect(origin: .zero, size: CGSize(width: scale, height: scale)))
+//			UIColor.red.setFill()
+//			context.cgContext.fillEllipse(in: CGRect(origin: .zero, size: CGSize(width: scale, height: scale)))
 
-			UIColor.black.setFill()
 			for (_, room) in rooms.rooms {
 				let unscaledPosition = CGPoint(x: room.position.x, y: room.position.y) + offset
+				let color = unscaledPosition == .zero ? UIColor.red : UIColor.black
+				color.setFill()
 				let scaledPosition = unscaledPosition * scale
 				context.cgContext.fillEllipse(in: CGRect(origin: scaledPosition, size: CGSize(width: scale, height: scale)))
 			}

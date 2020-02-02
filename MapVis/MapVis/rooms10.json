@@ -1,0 +1,155 @@
+{
+  "rooms": {
+    "55f841d563e741479d50926247cbf587": {
+      "name": "Room 1",
+      "position": [
+        1,
+        0
+      ],
+      "id": "55f841d563e741479d50926247cbf587",
+      "south": "ff9e13e45dd44ba59ecf0bc1ccdd4b25",
+      "west": "69879a0f9bbf473881776ee4ea2ee436",
+      "itemReward": null
+    },
+    "426b313d38ce4db2b02298ab82b57498": {
+      "name": "Room 8",
+      "position": [
+        0,
+        2
+      ],
+      "id": "426b313d38ce4db2b02298ab82b57498",
+      "south": "368a0dc65e7046848a45345b58529c2c",
+      "itemReward": null
+    },
+    "d3b44e284e174167b026dd28a5c75ffa": {
+      "name": "Room 9",
+      "position": [
+        3,
+        -2
+      ],
+      "id": "d3b44e284e174167b026dd28a5c75ffa",
+      "west": "e1d16cf6acff4bea98115dae3bb6e129",
+      "itemReward": null
+    },
+    "3545d472c13249dea06fc2e09d4ad74e": {
+      "name": "Room 4",
+      "position": [
+        2,
+        -1
+      ],
+      "id": "3545d472c13249dea06fc2e09d4ad74e",
+      "south": "e1d16cf6acff4bea98115dae3bb6e129",
+      "west": "ff9e13e45dd44ba59ecf0bc1ccdd4b25",
+      "itemReward": null
+    },
+    "a6c7adc72bf9423c9ba729598bcb469d": {
+      "name": "Room 5",
+      "position": [
+        -1,
+        1
+      ],
+      "id": "a6c7adc72bf9423c9ba729598bcb469d",
+      "west": "edd2f9112cd743e1b0726bcb6abbe0ad",
+      "east": "368a0dc65e7046848a45345b58529c2c",
+      "itemReward": null
+    },
+    "368a0dc65e7046848a45345b58529c2c": {
+      "name": "Room 3",
+      "position": [
+        0,
+        1
+      ],
+      "id": "368a0dc65e7046848a45345b58529c2c",
+      "north": "426b313d38ce4db2b02298ab82b57498",
+      "south": "69879a0f9bbf473881776ee4ea2ee436",
+      "west": "a6c7adc72bf9423c9ba729598bcb469d",
+      "itemReward": null
+    },
+    "69879a0f9bbf473881776ee4ea2ee436": {
+      "name": "Spawn Area",
+      "position": [
+        0,
+        0
+      ],
+      "id": "69879a0f9bbf473881776ee4ea2ee436",
+      "north": "368a0dc65e7046848a45345b58529c2c",
+      "east": "55f841d563e741479d50926247cbf587",
+      "itemReward": null
+    },
+    "e1d16cf6acff4bea98115dae3bb6e129": {
+      "name": "Room 6",
+      "position": [
+        2,
+        -2
+      ],
+      "id": "e1d16cf6acff4bea98115dae3bb6e129",
+      "north": "3545d472c13249dea06fc2e09d4ad74e",
+      "east": "d3b44e284e174167b026dd28a5c75ffa",
+      "itemReward": null
+    },
+    "ff9e13e45dd44ba59ecf0bc1ccdd4b25": {
+      "name": "Room 2",
+      "position": [
+        1,
+        -1
+      ],
+      "id": "ff9e13e45dd44ba59ecf0bc1ccdd4b25",
+      "north": "55f841d563e741479d50926247cbf587",
+      "east": "3545d472c13249dea06fc2e09d4ad74e",
+      "itemReward": null
+    },
+    "edd2f9112cd743e1b0726bcb6abbe0ad": {
+      "name": "Room 7",
+      "position": [
+        -2,
+        1
+      ],
+      "id": "edd2f9112cd743e1b0726bcb6abbe0ad",
+      "east": "a6c7adc72bf9423c9ba729598bcb469d",
+      "itemReward": null
+    }
+  },
+  "roomCoordinates": [
+    [
+      -2,
+      1
+    ],
+    [
+      1,
+      -1
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      -1,
+      1
+    ],
+    [
+      2,
+      -2
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      3,
+      -2
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      2,
+      -1
+    ],
+    [
+      1,
+      0
+    ]
+  ],
+  "spawnRoom": "69879a0f9bbf473881776ee4ea2ee436"
+}

@@ -13,6 +13,13 @@
 		33041A9E23E68A9100B2B95C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33041A9C23E68A9100B2B95C /* Main.storyboard */; };
 		33041AA023E68A9400B2B95C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33041A9F23E68A9400B2B95C /* Assets.xcassets */; };
 		33041AA323E68A9400B2B95C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33041AA123E68A9400B2B95C /* LaunchScreen.storyboard */; };
+		33041AAB23E68B4600B2B95C /* MapImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33041AAA23E68B4600B2B95C /* MapImage.swift */; };
+		33041AAF23E68B8100B2B95C /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33041AAE23E68B8100B2B95C /* Room.swift */; };
+		33041AB123E68C1400B2B95C /* RoomCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33041AB023E68C1400B2B95C /* RoomCollection.swift */; };
+		33041AB323E68CF100B2B95C /* CGPoint+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33041AB223E68CF100B2B95C /* CGPoint+Hashable.swift */; };
+		33041AB723E68F6B00B2B95C /* rooms100.json in Resources */ = {isa = PBXBuildFile; fileRef = 33041AB423E68F6B00B2B95C /* rooms100.json */; };
+		33041AB823E68F6B00B2B95C /* rooms10.json in Resources */ = {isa = PBXBuildFile; fileRef = 33041AB523E68F6B00B2B95C /* rooms10.json */; };
+		33041AB923E68F6B00B2B95C /* rooms500.json in Resources */ = {isa = PBXBuildFile; fileRef = 33041AB623E68F6B00B2B95C /* rooms500.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +31,13 @@
 		33041A9F23E68A9400B2B95C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33041AA223E68A9400B2B95C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33041AA423E68A9400B2B95C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33041AAA23E68B4600B2B95C /* MapImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapImage.swift; sourceTree = "<group>"; };
+		33041AAE23E68B8100B2B95C /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		33041AB023E68C1400B2B95C /* RoomCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCollection.swift; sourceTree = "<group>"; };
+		33041AB223E68CF100B2B95C /* CGPoint+Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Hashable.swift"; sourceTree = "<group>"; };
+		33041AB423E68F6B00B2B95C /* rooms100.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rooms100.json; sourceTree = "<group>"; };
+		33041AB523E68F6B00B2B95C /* rooms10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rooms10.json; sourceTree = "<group>"; };
+		33041AB623E68F6B00B2B95C /* rooms500.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rooms500.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +70,16 @@
 		33041A9523E68A9100B2B95C /* MapVis */ = {
 			isa = PBXGroup;
 			children = (
+				33041AB523E68F6B00B2B95C /* rooms10.json */,
+				33041AB423E68F6B00B2B95C /* rooms100.json */,
+				33041AB623E68F6B00B2B95C /* rooms500.json */,
 				33041A9623E68A9100B2B95C /* AppDelegate.swift */,
 				33041A9823E68A9100B2B95C /* SceneDelegate.swift */,
 				33041A9A23E68A9100B2B95C /* ViewController.swift */,
+				33041AAA23E68B4600B2B95C /* MapImage.swift */,
+				33041AAE23E68B8100B2B95C /* Room.swift */,
+				33041AB023E68C1400B2B95C /* RoomCollection.swift */,
+				33041AB223E68CF100B2B95C /* CGPoint+Hashable.swift */,
 				33041A9C23E68A9100B2B95C /* Main.storyboard */,
 				33041A9F23E68A9400B2B95C /* Assets.xcassets */,
 				33041AA123E68A9400B2B95C /* LaunchScreen.storyboard */,
@@ -126,7 +147,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				33041AA323E68A9400B2B95C /* LaunchScreen.storyboard in Resources */,
+				33041AB823E68F6B00B2B95C /* rooms10.json in Resources */,
 				33041AA023E68A9400B2B95C /* Assets.xcassets in Resources */,
+				33041AB923E68F6B00B2B95C /* rooms500.json in Resources */,
+				33041AB723E68F6B00B2B95C /* rooms100.json in Resources */,
 				33041A9E23E68A9100B2B95C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,9 +162,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33041AB123E68C1400B2B95C /* RoomCollection.swift in Sources */,
 				33041A9B23E68A9100B2B95C /* ViewController.swift in Sources */,
 				33041A9723E68A9100B2B95C /* AppDelegate.swift in Sources */,
+				33041AAB23E68B4600B2B95C /* MapImage.swift in Sources */,
 				33041A9923E68A9100B2B95C /* SceneDelegate.swift in Sources */,
+				33041AAF23E68B8100B2B95C /* Room.swift in Sources */,
+				33041AB323E68CF100B2B95C /* CGPoint+Hashable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

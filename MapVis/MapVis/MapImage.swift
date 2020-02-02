@@ -52,11 +52,14 @@ class MapImage {
 			context.cgContext.scaleBy(x: 1, y: -1)
 
 			for (_, room) in rooms.rooms {
+				// offset room position so it fits with 0,0 as origin
 				let unscaledPosition = CGPoint(x: room.position.x, y: room.position.y) + offset
 				let color = room.position == .zero ? UIColor.red : UIColor.black
 				color.setFill()
 				let scaledPosition = unscaledPosition * scale
+				// draw room
 				context.cgContext.fillEllipse(in: CGRect(origin: scaledPosition, size: CGSize(width: scale, height: scale)))
+				// fill in gaps between rooms
 				if room.northRoomID != nil {
 					let offset = CGVector(dx: 0, dy: scale / 2)
 					let fillPoint = scaledPosition + offset
@@ -82,8 +85,6 @@ class MapImage {
 					context.cgContext.fill(rect)
 				}
 			}
-
-
 		}
 		return image
 	}

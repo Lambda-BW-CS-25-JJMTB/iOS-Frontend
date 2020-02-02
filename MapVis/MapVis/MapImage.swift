@@ -56,6 +56,39 @@ class MapImage {
 		self.scale = scale
 	}
 
+	let drawRoom: (UIGraphicsImageRendererContext, Room, CGVector, CGFloat, UIColor) -> Void = { context, room, offset, scale, color in
+		color.set()
+		let unscaledPosition = CGPoint(x: room.position.x, y: room.position.y) + offset
+		let scaledPosition = unscaledPosition * scale
+		// draw room
+		context.cgContext.fillEllipse(in: CGRect(origin: scaledPosition, size: CGSize(width: scale, height: scale)))
+		// fill in gaps between rooms
+		if room.northRoomID != nil {
+			let offset = CGVector(dx: 0, dy: scale / 2)
+			let fillPoint = scaledPosition + offset
+			let rect = CGRect(origin: fillPoint, size: CGSize(width: scale, height: scale / 2))
+			context.fill(rect)
+		}
+		if room.southRoomID != nil {
+			let offset = CGVector(dx: 0, dy: 0)
+			let fillPoint = scaledPosition + offset
+			let rect = CGRect(origin: fillPoint, size: CGSize(width: scale, height: scale / 2))
+			context.cgContext.fill(rect)
+		}
+		if room.westRoomID != nil {
+			let offset = CGVector(dx: 0, dy: 0)
+			let fillPoint = scaledPosition + offset
+			let rect = CGRect(origin: fillPoint, size: CGSize(width: scale / 2, height: scale))
+			context.cgContext.fill(rect)
+		}
+		if room.eastRoomID != nil {
+			let offset = CGVector(dx: scale / 2, dy: 0)
+			let fillPoint = scaledPosition + offset
+			let rect = CGRect(origin: fillPoint, size: CGSize(width: scale / 2, height: scale))
+			context.cgContext.fill(rect)
+		}
+	}
+
 	func generateOverworldMap() -> UIImage {
 		let offset = unscaledOffset
 
@@ -68,37 +101,10 @@ class MapImage {
 
 			for (_, room) in rooms.rooms {
 				// offset room position so it fits with 0,0 as origin
-				let unscaledPosition = CGPoint(x: room.position.x, y: room.position.y) + offset
-				let color = room.position == .zero ? UIColor.red : UIColor.black
+//				let unscaledPosition = CGPoint(x: room.position.x, y: room.position.y) + offset
+				let color = room.position == .zero ? UIColor.darkGray : UIColor.black
 				color.setFill()
-				let scaledPosition = unscaledPosition * scale
-				// draw room
-				context.cgContext.fillEllipse(in: CGRect(origin: scaledPosition, size: CGSize(width: scale, height: scale)))
-				// fill in gaps between rooms
-				if room.northRoomID != nil {
-					let offset = CGVector(dx: 0, dy: scale / 2)
-					let fillPoint = scaledPosition + offset
-					let rect = CGRect(origin: fillPoint, size: CGSize(width: scale, height: scale / 2))
-					context.fill(rect)
-				}
-				if room.southRoomID != nil {
-					let offset = CGVector(dx: 0, dy: 0)
-					let fillPoint = scaledPosition + offset
-					let rect = CGRect(origin: fillPoint, size: CGSize(width: scale, height: scale / 2))
-					context.cgContext.fill(rect)
-				}
-				if room.westRoomID != nil {
-					let offset = CGVector(dx: 0, dy: 0)
-					let fillPoint = scaledPosition + offset
-					let rect = CGRect(origin: fillPoint, size: CGSize(width: scale / 2, height: scale))
-					context.cgContext.fill(rect)
-				}
-				if room.eastRoomID != nil {
-					let offset = CGVector(dx: scale / 2, dy: 0)
-					let fillPoint = scaledPosition + offset
-					let rect = CGRect(origin: fillPoint, size: CGSize(width: scale / 2, height: scale))
-					context.cgContext.fill(rect)
-				}
+				drawRoom(context, room, offset, scale, color)
 			}
 		}
 		return image

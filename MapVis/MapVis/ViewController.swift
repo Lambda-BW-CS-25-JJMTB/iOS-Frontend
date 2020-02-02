@@ -29,7 +29,7 @@ class ViewController: UIViewController {
 	}
 
 	@IBAction func renderButtonPressed(_ sender: UIButton) {
-		imageView.image = imageGen?.generateImage()
+		imageView.image = imageGen?.generateOverworldMap()
 	}
 
 	@IBAction func clearButtonPressed(_ sender: UIButton) {

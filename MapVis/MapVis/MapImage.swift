@@ -9,19 +9,11 @@
 import UIKit
 
 class MapImage {
-//	let image: UIImage?
-
 	let jsonData: Data
 	let rooms: RoomCollection
 	let scale: CGFloat
 
-	init(jsonData: Data, scale: CGFloat) throws {
-		self.jsonData = jsonData
-		self.rooms = try JSONDecoder().decode(RoomCollection.self, from: jsonData)
-		self.scale = scale
-	}
-
-	func generateImage() -> UIImage {
+	private lazy var ranges: (ClosedRange<CGFloat>, ClosedRange<CGFloat>) = {
 		// sort x and y values
 		let zero: CGFloat = 0
 		let xRange = rooms.roomCoordinates.reduce(zero...zero) {
@@ -34,21 +26,43 @@ class MapImage {
 			let upper = max($0.upperBound, $1.y)
 			return lower...upper
 		}
+		return (xRange, yRange)
+	}()
 
+	private lazy var unscaledOffset: CGVector = {
 		// find offset to normalize negative values to 0
+		let (xRange, yRange) = ranges
 		let xOffset = 0 - xRange.lowerBound
 		let yOffset = 0 - yRange.lowerBound
-		let offset = CGVector(dx: xOffset, dy: yOffset)
+		return CGVector(dx: xOffset, dy: yOffset)
+	}()
 
+	private lazy var unscaledSize: CGSize = {
 		// find span between lowest and largest values
+		let (xRange, yRange) = ranges
 		let xSpan = (xRange.upperBound - xRange.lowerBound) + 1
-		let ySpan = (yRange.upperBound - yRange.lowerBound) + 1
+		let ySpan = (yRange.upperBound - yRange.lowerBound) + 1 // add one because the point is in the bottom left corner of a node, which pushes the far upper and right nodes off if not compensated
+		return CGSize(width: xSpan, height: ySpan)
+	}()
+
+	var imageSize: CGSize {
+		unscaledSize * scale
+	}
+
+	init(jsonData: Data, scale: CGFloat) throws {
+		self.jsonData = jsonData
+		self.rooms = try JSONDecoder().decode(RoomCollection.self, from: jsonData)
+		self.scale = scale
+	}
+
+	func generateOverworldMap() -> UIImage {
+		let offset = unscaledOffset
 
 		// create context and draw
-		let renderer = UIGraphicsImageRenderer(size: CGSize(width: xSpan, height: ySpan) * scale)
+		let renderer = UIGraphicsImageRenderer(size: imageSize)
 		let image = renderer.image { context in
 			// flip context vertical so drawing with origin in bottom left
-			context.cgContext.translateBy(x: 0, y: ySpan * scale)
+			context.cgContext.translateBy(x: 0, y: imageSize.height)
 			context.cgContext.scaleBy(x: 1, y: -1)
 
 			for (_, room) in rooms.rooms {

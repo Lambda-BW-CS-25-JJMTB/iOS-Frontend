@@ -11,7 +11,7 @@ import UIKit
 class MapImage {
 	let jsonData: Data
 	let rooms: RoomCollection
-	let scale: CGFloat
+	var scale: CGFloat
 
 	private lazy var ranges: (ClosedRange<CGFloat>, ClosedRange<CGFloat>) = {
 		// sort x and y values
@@ -37,19 +37,20 @@ class MapImage {
 		return CGVector(dx: xOffset, dy: yOffset)
 	}()
 
-	private lazy var unscaledSize: CGSize = {
+	var unscaledSize: CGSize {
 		// find span between lowest and largest values
 		let (xRange, yRange) = ranges
 		let xSpan = (xRange.upperBound - xRange.lowerBound) + 1
 		let ySpan = (yRange.upperBound - yRange.lowerBound) + 1 // add one because the point is in the bottom left corner of a node, which pushes the far upper and right nodes off if not compensated
 		return CGSize(width: xSpan, height: ySpan)
-	}()
+	}
 
+	/// The size of the resulting output image
 	var imageSize: CGSize {
 		unscaledSize * scale
 	}
 
-	init(jsonData: Data, scale: CGFloat) throws {
+	init(jsonData: Data, scale: CGFloat = 50) throws {
 		self.jsonData = jsonData
 		self.rooms = try JSONDecoder().decode(RoomCollection.self, from: jsonData)
 		self.scale = scale
@@ -103,5 +104,8 @@ class MapImage {
 		return image
 	}
 
+//	func generateRoomOverlay() -> UIImage {
+//
+//	}
 
 }

@@ -17,15 +17,19 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
 
-		guard let url = Bundle.main.url(forResource: "rooms100", withExtension: "json") else { return }
+		guard let url = Bundle.main.url(forResource: "rooms500", withExtension: "json") else { return }
 
 		do {
 			let data = try Data(contentsOf: url)
-			self.imageGen = try MapImage(jsonData: data, scale: 50)
+			self.imageGen = try MapImage(jsonData: data)
 		} catch {
 			NSLog("Failed opening: \(error)")
 			return
 		}
+
+		guard let imageGen = imageGen else { return }
+		let scale = view.frame.width / max(imageGen.unscaledSize.width, imageGen.unscaledSize.height)
+		imageGen.scale = scale
 	}
 
 	@IBAction func renderButtonPressed(_ sender: UIButton) {

@@ -21,6 +21,9 @@
                                     <constraint firstAttribute="width" secondItem="OMU-oe-jxN" secondAttribute="height" id="dVZ-OD-3En"/>
                                 </constraints>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pEC-DZ-EhY">
+                                <rect key="frame" x="0.0" y="44" width="414" height="414"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="2Lf-hs-ERe">
                                 <rect key="frame" x="20" y="466" width="374" height="30"/>
                                 <subviews>
@@ -40,20 +43,72 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUi-wQ-VyE">
+                                <rect key="frame" x="192" y="522" width="30" height="30"/>
+                                <state key="normal" title="Up"/>
+                                <connections>
+                                    <action selector="upButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8H3-dU-WxL"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l6C-vs-HWB" userLabel="dpad anchor">
+                                <rect key="frame" x="157" y="560" width="100" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="6X0-O4-eph"/>
+                                    <constraint firstAttribute="width" secondItem="l6C-vs-HWB" secondAttribute="height" id="pLB-fQ-G05"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7k-wk-aVT">
+                                <rect key="frame" x="265" y="595" width="36" height="30"/>
+                                <state key="normal" title="Right"/>
+                                <connections>
+                                    <action selector="rightButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oyo-eG-Qs9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udP-6e-Wiu">
+                                <rect key="frame" x="187.5" y="661.5" width="39" height="30"/>
+                                <state key="normal" title="Down"/>
+                                <connections>
+                                    <action selector="downButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pFh-u9-ZTI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6b-3i-YLj">
+                                <rect key="frame" x="119" y="595" width="30" height="30"/>
+                                <state key="normal" title="Left"/>
+                                <connections>
+                                    <action selector="leftButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f8J-Fc-Jyp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="l6C-vs-HWB" firstAttribute="centerY" secondItem="h6b-3i-YLj" secondAttribute="centerY" id="Bmo-vC-PY7"/>
+                            <constraint firstItem="F7k-wk-aVT" firstAttribute="centerY" secondItem="l6C-vs-HWB" secondAttribute="centerY" id="BpR-xH-67e"/>
                             <constraint firstItem="OMU-oe-jxN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EJy-Q4-2kv"/>
+                            <constraint firstItem="NUi-wQ-VyE" firstAttribute="centerX" secondItem="l6C-vs-HWB" secondAttribute="centerX" id="GAK-Zj-hJe"/>
+                            <constraint firstItem="F7k-wk-aVT" firstAttribute="leading" secondItem="l6C-vs-HWB" secondAttribute="trailing" constant="8" symbolic="YES" id="JWC-gM-GIq"/>
+                            <constraint firstItem="pEC-DZ-EhY" firstAttribute="leading" secondItem="OMU-oe-jxN" secondAttribute="leading" id="LHR-ao-k0I"/>
+                            <constraint firstItem="pEC-DZ-EhY" firstAttribute="top" secondItem="OMU-oe-jxN" secondAttribute="top" id="LXv-Kx-Fm5"/>
+                            <constraint firstItem="udP-6e-Wiu" firstAttribute="firstBaseline" secondItem="l6C-vs-HWB" secondAttribute="baseline" constant="22" symbolType="layoutAnchor" id="Od8-ce-daV"/>
                             <constraint firstItem="2Lf-hs-ERe" firstAttribute="top" secondItem="OMU-oe-jxN" secondAttribute="bottom" constant="8" id="PDJ-8T-KMd"/>
+                            <constraint firstItem="l6C-vs-HWB" firstAttribute="leading" secondItem="h6b-3i-YLj" secondAttribute="trailing" constant="8" symbolic="YES" id="YWt-GE-ano"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OMU-oe-jxN" secondAttribute="trailing" id="a2u-tW-NGR"/>
+                            <constraint firstItem="udP-6e-Wiu" firstAttribute="centerX" secondItem="l6C-vs-HWB" secondAttribute="centerX" id="bdC-Aa-S1Y"/>
+                            <constraint firstItem="l6C-vs-HWB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="bj3-Ik-CRw"/>
+                            <constraint firstItem="pEC-DZ-EhY" firstAttribute="width" secondItem="pEC-DZ-EhY" secondAttribute="height" id="dGa-GW-kCy"/>
                             <constraint firstItem="OMU-oe-jxN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mNV-Y5-CGz"/>
+                            <constraint firstItem="pEC-DZ-EhY" firstAttribute="bottom" secondItem="OMU-oe-jxN" secondAttribute="bottom" id="nx5-m0-ty7"/>
+                            <constraint firstItem="NUi-wQ-VyE" firstAttribute="top" secondItem="2Lf-hs-ERe" secondAttribute="bottom" constant="26" id="pw7-7o-4EF"/>
                             <constraint firstItem="2Lf-hs-ERe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="qhL-Gr-VHH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2Lf-hs-ERe" secondAttribute="trailing" constant="20" id="rJL-1r-F9b"/>
+                            <constraint firstItem="pEC-DZ-EhY" firstAttribute="trailing" secondItem="OMU-oe-jxN" secondAttribute="trailing" id="s71-gV-Kc5"/>
+                            <constraint firstItem="l6C-vs-HWB" firstAttribute="top" secondItem="NUi-wQ-VyE" secondAttribute="bottom" constant="8" symbolic="YES" id="yXo-Ms-Gzn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="OMU-oe-jxN" id="rki-tt-G6i"/>
+                        <outlet property="overlayImage" destination="pEC-DZ-EhY" id="xlj-rY-bEr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

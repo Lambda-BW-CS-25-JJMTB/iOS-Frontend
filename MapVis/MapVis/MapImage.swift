@@ -13,6 +13,8 @@ class MapImage {
 	let rooms: RoomCollection
 	var scale: CGFloat
 
+	var currentRoom: Room
+
 	private lazy var ranges: (ClosedRange<CGFloat>, ClosedRange<CGFloat>) = {
 		// sort x and y values
 		let zero: CGFloat = 0
@@ -54,6 +56,19 @@ class MapImage {
 		self.jsonData = jsonData
 		self.rooms = try JSONDecoder().decode(RoomCollection.self, from: jsonData)
 		self.scale = scale
+
+		guard let spawnRoom = rooms.rooms[rooms.spawnRoom] else {
+			throw NSError(domain: "Can't find spawn room", code: -1, userInfo: nil)
+		}
+		currentRoom = spawnRoom
+	}
+
+	func room(for id: String) -> Room? {
+		rooms.rooms[id]
+	}
+
+	func changeRoom(room: Room) {
+		currentRoom = room
 	}
 
 	private func drawRoom(_ room: Room, onContext context: UIGraphicsImageRendererContext, offset: CGVector, color: UIColor) {
@@ -92,8 +107,6 @@ class MapImage {
 	}
 
 	func generateOverworldMap() -> UIImage {
-		let offset = unscaledOffset
-
 		// create context and draw
 		let renderer = UIGraphicsImageRenderer(size: imageSize)
 		let image = renderer.image { context in
@@ -103,15 +116,24 @@ class MapImage {
 
 			for (_, room) in rooms.rooms {
 				let color = room.position == .zero ? UIColor.darkGray : UIColor.black
-				color.setFill()
-				drawRoom(room, onContext: context, offset: offset, color: color)
+				drawRoom(room, onContext: context, offset: unscaledOffset, color: color)
 			}
 		}
 		return image
 	}
 
-//	func generateRoomOverlay() -> UIImage {
-//
-//	}
+	func generateCurrentRoomOverlay() -> UIImage {
+		// create context and draw
+		let renderer = UIGraphicsImageRenderer(size: imageSize)
+		let image = renderer.image { context in
+			// flip context vertical so drawing with origin in bottom left
+			context.cgContext.translateBy(x: 0, y: imageSize.height)
+			context.cgContext.scaleBy(x: 1, y: -1)
+
+			let color = UIColor.red
+			drawRoom(currentRoom, onContext: context, offset: unscaledOffset, color: color)
+		}
+		return image
+	}
 
 }

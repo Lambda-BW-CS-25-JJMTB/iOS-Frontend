@@ -1,3 +1,0 @@
-$(SRCROOT)/Carthage/Build/iOS/SocketIO.framework
-$(SRCROOT)/Carthage/Build/iOS/Starscream.framework
-

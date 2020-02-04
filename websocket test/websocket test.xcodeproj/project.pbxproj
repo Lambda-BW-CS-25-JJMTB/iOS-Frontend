@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,11 @@
 		337234A823E7820000B7C33F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 337234A623E7820000B7C33F /* Main.storyboard */; };
 		337234AA23E7820300B7C33F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 337234A923E7820300B7C33F /* Assets.xcassets */; };
 		337234AD23E7820300B7C33F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 337234AB23E7820300B7C33F /* LaunchScreen.storyboard */; };
+		337234B523E7826300B7C33F /* cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 337234B423E7826300B7C33F /* cartfile */; };
+		337234B923E7836E00B7C33F /* input.xcfilelist in Resources */ = {isa = PBXBuildFile; fileRef = 337234B823E7836E00B7C33F /* input.xcfilelist */; };
+		337234BC23E7837F00B7C33F /* output.xcfilelist in Resources */ = {isa = PBXBuildFile; fileRef = 337234BB23E7837F00B7C33F /* output.xcfilelist */; };
+		337234C023E783B400B7C33F /* SocketIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 337234BE23E783B400B7C33F /* SocketIO.framework */; };
+		337234C123E783B400B7C33F /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 337234BF23E783B400B7C33F /* Starscream.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		337234A923E7820300B7C33F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		337234AC23E7820300B7C33F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		337234AE23E7820300B7C33F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		337234B423E7826300B7C33F /* cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = cartfile; sourceTree = "<group>"; };
+		337234B823E7836E00B7C33F /* input.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = input.xcfilelist; sourceTree = "<group>"; };
+		337234BB23E7837F00B7C33F /* output.xcfilelist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcfilelist; path = output.xcfilelist; sourceTree = "<group>"; };
+		337234BE23E783B400B7C33F /* SocketIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIO.framework; path = Carthage/Build/iOS/SocketIO.framework; sourceTree = "<group>"; };
+		337234BF23E783B400B7C33F /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				337234C023E783B400B7C33F /* SocketIO.framework in Frameworks */,
+				337234C123E783B400B7C33F /* Starscream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +52,12 @@
 		3372349423E7820000B7C33F = {
 			isa = PBXGroup;
 			children = (
+				337234B423E7826300B7C33F /* cartfile */,
+				337234B823E7836E00B7C33F /* input.xcfilelist */,
+				337234BB23E7837F00B7C33F /* output.xcfilelist */,
 				3372349F23E7820000B7C33F /* websocket test */,
 				3372349E23E7820000B7C33F /* Products */,
+				337234BD23E7839700B7C33F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +83,15 @@
 			path = "websocket test";
 			sourceTree = "<group>";
 		};
+		337234BD23E7839700B7C33F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				337234BE23E783B400B7C33F /* SocketIO.framework */,
+				337234BF23E783B400B7C33F /* Starscream.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,6 +102,7 @@
 				3372349923E7820000B7C33F /* Sources */,
 				3372349A23E7820000B7C33F /* Frameworks */,
 				3372349B23E7820000B7C33F /* Resources */,
+				337234B723E7831C00B7C33F /* Run Script - carthage */,
 			);
 			buildRules = (
 			);
@@ -126,12 +152,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				337234AD23E7820300B7C33F /* LaunchScreen.storyboard in Resources */,
+				337234B923E7836E00B7C33F /* input.xcfilelist in Resources */,
 				337234AA23E7820300B7C33F /* Assets.xcassets in Resources */,
+				337234BC23E7837F00B7C33F /* output.xcfilelist in Resources */,
 				337234A823E7820000B7C33F /* Main.storyboard in Resources */,
+				337234B523E7826300B7C33F /* cartfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		337234B723E7831C00B7C33F /* Run Script - carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"$(SRCROOT)/input.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "Run Script - carthage";
+			outputFileListPaths = (
+				"$(SRCROOT)/output.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n/usr/local/bin/carthage outdated --xcode-warnings\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3372349923E7820000B7C33F /* Sources */ = {
@@ -286,6 +338,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VXUQXR6S56;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "websocket test/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -304,6 +360,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VXUQXR6S56;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "websocket test/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -44,6 +44,18 @@ class ViewController: UIViewController {
 
 	@IBAction func clearButtonPressed(_ sender: UIButton) {
 		imageView.image = nil
+		overlayImage.image = nil
+
+		guard let url = URL(string: "http://localhost:8000/api/worldmap") else { return }
+
+		do {
+			let data = try Data(contentsOf: url)
+			self.imageGen = try MapImage(jsonData: data)
+		} catch {
+			NSLog("Failed opening: \(error)")
+			return
+		}
+		print(self.imageGen?.jsonData)
 	}
 
 	@IBAction func upButtonPressed(_ sender: UIButton) {

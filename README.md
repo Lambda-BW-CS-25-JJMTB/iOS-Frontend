@@ -1,6 +1,6 @@
 # iOS-Frontend
 
-# The Great Bescape
+# The Great Bwescape
 
 # Object: Escape from the maze to the outermost room which contains the "crown" to beat your opponents who attempt to do the same.
 

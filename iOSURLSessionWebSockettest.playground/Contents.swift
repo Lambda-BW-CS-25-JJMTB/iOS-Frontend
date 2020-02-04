@@ -18,7 +18,7 @@ class SocketController {
 
 
 let controller = SocketController()
-let task = controller.webSocketTask(with: URL(string:"ws://127.0.0.1:8000/ws/rooms/")!)
+let task = controller.webSocketTask(with: URL(string:"ws://127.0.0.1:8000/ws/rooms/insertplayersidhere/")!)
 
 func repete() {
 	task.receive { result in
